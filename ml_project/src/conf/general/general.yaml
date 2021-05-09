@@ -1,0 +1,5 @@
+# @package _group_
+input_data_path: data/heart.csv
+output_model_path: models
+random_state: 42
+val: 0.2
