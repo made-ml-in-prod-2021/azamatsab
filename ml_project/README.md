@@ -37,9 +37,9 @@ python -m pytest . -v
 
 ```bash
 python src/train.py model=logreg
-python src/train.py model=rf transforms=transforms general=general
+python src/train.py model=rf transforms=transforms general.output_model_path=models general.input_data_path=data/heart.csv
 ```
-Можно указать тип модели (logreg или randomForest, трансформеры и общие параметры, такие как размер валидационной выборки, random_state)
+Можно указать тип модели (logreg или randomForest, трансформеры и общие параметры, такие как размер валидационной выборки, random_state, путь для сохранения модели)
 
 Конфиги хранятся в src/conf
 
