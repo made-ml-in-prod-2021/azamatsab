@@ -87,13 +87,11 @@ python -m tools.predict --config-name ./configs/config_rf.yml
     │   ├
     │   └── test_train_pipeline
     │
-    ├── LICENSE
+    ├── README.md                      <- Описание проекта
     │
-    ├── README.md                      <- The top-level README for developers using this project.
+    ├── requirements                   <- Требуемые пакеты для запуска проекта 
+    │       ├──requirements.txt
     │
-    ├── requirements.txt               <- The requirements file for reproducing the analysis environment, e.g.
-    │                                     generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py                       <- Makes project pip installable (pip install -e .) so src can be imported.
+    ├── setup.py                       <- Скрипт для установки проекта через pip
 
 ------------
