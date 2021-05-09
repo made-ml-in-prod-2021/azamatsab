@@ -40,13 +40,16 @@ python src/train.py model=logreg
 python src/train.py model=rf transforms=transforms general=general
 ```
 Можно указать тип модели (logreg или randomForest, трансформеры и общие параметры, такие как размер валидационной выборки, random_state)
+
 Конфиги хранятся в src/conf
 
 ### Для запуска инференса:
 ```bash
 python src/predict.py general.model_path=models/LogisticRegression general.input_data_path=data/heart.csv
 ```
+
 general.model_path - путь к чекпойнту модели
+
 general.input_data_path - путь к данным
 
 ## Структура проекта
