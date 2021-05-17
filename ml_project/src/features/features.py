@@ -5,9 +5,9 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 
-from src.entities.config import FeatureParams, Transforms
-from src.features.transforms import StandardScaler
-import src.features.transforms as transformers
+from entities.config import FeatureParams, Transforms
+from features.transforms import StandardScaler
+import features.transforms as transformers
 
 
 def build_categorical_pipeline(params: Transforms) -> Pipeline:

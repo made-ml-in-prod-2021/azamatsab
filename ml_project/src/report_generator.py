@@ -7,8 +7,8 @@ import pandas as pd
 import hydra
 from hydra.utils import to_absolute_path
 
-from src.entities.config import ReportConfig
-from src.utils import check_dir
+from entities.config import ReportConfig
+from utils import check_dir
 
 logger = logging.getLogger("classifier.report_generator")
 

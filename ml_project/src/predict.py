@@ -9,9 +9,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-from src.entities.config import PredConfig
-from src.features.features import drop_target, extract_target, build_transformer
-from src.utils import load_model, check_dir
+from entities.config import PredConfig
+from features.features import drop_target, extract_target, build_transformer
+from utils import load_model, check_dir
 
 
 logger = logging.getLogger("classifier")
