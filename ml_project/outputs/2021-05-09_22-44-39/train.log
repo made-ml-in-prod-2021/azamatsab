@@ -1,0 +1,1 @@
+[2021-05-09 22:44:39,971][classifier.train][INFO] - Start training {'max_depth': 3, '_target_': 'sklearn.ensemble.RandomForestClassifier', 'n_estimators': 100, 'random_state': '${general.random_state}'} model

@@ -16,7 +16,7 @@ class StandardScaler:
         self.mu = None
         self.std = None
 
-    def fit(self, x: Iterable, y: Optional[np.ndarray] = None) -> 'StandardScaler':
+    def fit(self, x: Iterable, y: Optional[np.ndarray] = None) -> "StandardScaler":
         self.mu = x.mean(axis=0)
         self.std = x.std(axis=0)
         return self

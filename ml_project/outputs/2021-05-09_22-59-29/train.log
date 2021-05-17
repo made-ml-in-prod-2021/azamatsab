@@ -1,0 +1,2 @@
+[2021-05-09 22:59:29,456][classifier.train][INFO] - Start training sklearn.ensemble.RandomForestClassifier model
+[2021-05-09 22:59:29,580][classifier.train][INFO] - Accuracy score = 0.7377049180327869

@@ -8,7 +8,8 @@ from src.entities.config import FeatureParams
 from src.features.features import drop_target, extract_target
 
 # INPUT_PATH = 'data/heart.csv'
-FEATURE_CONF_PATH = 'src/conf/features/simple_featuers.yaml'
+FEATURE_CONF_PATH = "src/conf/features/simple_featuers.yaml"
+
 
 @pytest.fixture
 def params():
@@ -16,13 +17,15 @@ def params():
         f_params = yaml.load(fin, Loader=yaml.FullLoader)
     return FeatureParams(**f_params)
 
+
 @pytest.fixture
 def data():
     data = {}
-    columns = ['A', 'B', 'target']
+    columns = ["A", "B", "target"]
     for col in columns:
         data[col] = np.random.rand(10)
     return pd.DataFrame.from_dict(data)
+
 
 def test_standard_scaler_without_target(data, params):
     df = drop_target(data, params)
@@ -40,6 +43,7 @@ def test_standard_scaler_without_target(data, params):
 
     assert out.shape == df.shape
 
+
 def test_standard_scaler_with_target(data, params):
     df = drop_target(data, params)
     target = extract_target(data, params)
@@ -56,6 +60,7 @@ def test_standard_scaler_with_target(data, params):
         assert np.isclose(out_std.iloc[i], 1)
     assert out.shape == df.shape
 
+
 def test_standard_scaler_fit_transform_without_target(data, params):
     df = drop_target(data, params)
     scaler = StandardScaler()
@@ -69,6 +74,7 @@ def test_standard_scaler_fit_transform_without_target(data, params):
     for i in range(len(out_std)):
         assert np.isclose(out_std.iloc[i], 1)
     assert out.shape == df.shape
+
 
 def test_standard_scaler_fit_transform_with_target(data, params):
     df = drop_target(data, params)

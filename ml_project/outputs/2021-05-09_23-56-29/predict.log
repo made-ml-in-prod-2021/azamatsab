@@ -1,0 +1,2 @@
+[2021-05-09 23:56:29,630][classifier][INFO] - Starting prediction
+[2021-05-09 23:56:29,631][classifier.utils][INFO] - Loading model from /home/azamat/Documents/MADE/ml_on_production/ml_project/models/LogisticRegression

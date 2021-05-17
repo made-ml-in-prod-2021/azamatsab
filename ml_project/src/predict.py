@@ -16,10 +16,11 @@ from src.utils import load_model, check_dir
 
 logger = logging.getLogger("classifier")
 
+
 def predict(config: PredConfig):
     model_name = os.path.split(config.general.model_path)[1]
-    logger.info(f'Starting prediction using {model_name}')
-    
+    logger.info(f"Starting prediction using {model_name}")
+
     model = load_model(to_absolute_path(config.general.model_path))
 
     data_path = to_absolute_path(config.general.input_data_path)
@@ -28,15 +29,17 @@ def predict(config: PredConfig):
     data = pipeline.fit_transform(data)
     predictions = model.predict(data)
     predictions = pd.DataFrame(predictions, columns=["target"])
-    
+
     save_path = os.path.join(to_absolute_path(config.general.pred_path), model_name)
     check_dir(to_absolute_path(config.general.pred_path))
-    logger.info(f'Saving predictions to {save_path}')
+    logger.info(f"Saving predictions to {save_path}")
     predictions.to_csv(save_path, index=False)
 
-@hydra.main(config_path='conf', config_name='pred_config')
+
+@hydra.main(config_path="conf", config_name="pred_config")
 def run(config: PredConfig) -> None:
     predict(config)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     run()

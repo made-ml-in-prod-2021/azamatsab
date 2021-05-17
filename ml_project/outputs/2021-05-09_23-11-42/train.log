@@ -1,0 +1,2 @@
+[2021-05-09 23:11:42,900][classifier][INFO] - Start training sklearn.linear_model.LogisticRegression model
+[2021-05-09 23:11:42,933][classifier][INFO] - Accuracy score = 0.8688524590163934
