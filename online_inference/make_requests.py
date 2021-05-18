@@ -10,6 +10,7 @@ from entities.config import TestConfig
 config = TestConfig(**load_config("tests/test_conf/test_conf.yml"))
 data = json.load(open(config.data_path))
 
+
 def make_request_pos_class():
     response = requests.post(config.url, json=data[0])
     assert response.status_code == 200
