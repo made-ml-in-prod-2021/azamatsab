@@ -6,15 +6,14 @@ import yaml
 from sklearn.base import BaseEstimator
 
 from input_format import Item
-from entities.config import Config
 
 logger = logging.getLogger("uvicorn")
 
 
-def load_config(path: str) -> Config:
+def load_config(path: str) -> dict:
     with open(path) as fin:
         config = yaml.safe_load(fin)
-    return Config(**config)
+    return config
 
 
 def check_dir(path: str) -> None:
