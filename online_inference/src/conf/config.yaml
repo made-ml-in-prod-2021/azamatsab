@@ -1,2 +1,2 @@
-model_path: LogisticRegression
-pipeline_path: pipeline
+model_path: models/LogisticRegression
+pipeline_path: pipelines/pipeline

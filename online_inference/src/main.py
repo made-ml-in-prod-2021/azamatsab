@@ -17,7 +17,9 @@ from input_format import Item
 
 
 logger = logging.getLogger("uvicorn")
-config = Config(**load_config("conf/config.yaml"))
+config_path = os.getenv("PATH_TO_CONFIG")
+config_path = "src/conf/config.yaml" if config_path is None else config_path
+config = Config(**load_config(config_path))
 
 model = load_model(config.model_path)
 pipeline = load_model(config.pipeline_path)
