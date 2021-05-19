@@ -1,7 +1,7 @@
 import os
-import io
 import logging
 import pickle
+from typing import Optional
 
 import yaml
 import uvicorn
@@ -10,6 +10,8 @@ from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.encoders import jsonable_encoder
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from sklearn.pipeline import Pipeline
+from sklearn.base import BaseEstimator
 
 from entities.config import Config
 from utils import load_model, load_config
@@ -17,14 +19,23 @@ from input_format import Item
 
 
 logger = logging.getLogger("uvicorn")
-config_path = os.getenv("PATH_TO_CONFIG")
-config_path = "src/conf/config.yaml" if config_path is None else config_path
-config = Config(**load_config(config_path))
-
-model = load_model(config.model_path)
-pipeline = load_model(config.pipeline_path)
+model: Optional[Pipeline] = None
+pipeline: Optional[BaseEstimator] = None
 
 app = FastAPI()
+
+
+@app.on_event("startup")
+def prepare_model():
+    global model
+    global pipeline
+
+    config_path = os.getenv("PATH_TO_CONFIG")
+    config_path = "src/conf/config.yaml" if config_path is None else config_path
+    config = Config(**load_config(config_path))
+
+    model = load_model(config.model_path)
+    pipeline = load_model(config.pipeline_path)
 
 
 @app.exception_handler(RequestValidationError)
@@ -35,10 +46,6 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
             {
                 "detail": exc.errors(),
                 "body": exc.body,
-                "your_additional_errors": {
-                    "Will be": "Inside",
-                    "This": " Error message",
-                },
             }
         ),
     )
