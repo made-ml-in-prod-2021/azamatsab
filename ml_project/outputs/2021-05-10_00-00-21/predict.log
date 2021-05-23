@@ -1,0 +1,4 @@
+[2021-05-10 00:00:21,835][classifier][INFO] - Starting prediction using LogisticRegression
+[2021-05-10 00:00:21,836][classifier.utils][INFO] - Loading model from /home/azamat/Documents/MADE/ml_on_production/ml_project/models/LogisticRegression
+[2021-05-10 00:00:21,869][classifier.utils][INFO] - /home/azamat/Documents/MADE/ml_on_production/ml_project/preds does not exist. Creating ...
+[2021-05-10 00:00:21,869][classifier][INFO] - Saving predictions to /home/azamat/Documents/MADE/ml_on_production/ml_project/preds/LogisticRegression

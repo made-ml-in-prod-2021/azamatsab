@@ -1,0 +1,33 @@
+model:
+  max_depth: 3
+  _target_: sklearn.ensemble.RandomForestClassifier
+  n_estimators: 100
+  random_state: ${general.random_state}
+general:
+  input_data_path: data/heart.csv
+  output_model_path: models/model.pkl
+  random_state: 42
+  val: 0.2
+features:
+  categorical_features:
+  - sex
+  - cp
+  - fbs
+  - restecg
+  - exang
+  - slope
+  - ca
+  - thal
+  numerical_features:
+  - age
+  - trestbps
+  - chol
+  - thalach
+  - oldpeak
+  target_col: target
+transforms:
+  num_transforms:
+  - SimpleImputer
+  cat_transforms:
+  - SimpleImputer
+  - OneHotEncoder

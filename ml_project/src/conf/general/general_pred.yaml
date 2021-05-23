@@ -1,0 +1,4 @@
+# @package _group_
+model_path: models/LogisticRegression
+input_data_path: data/heart.csv
+pred_path: preds

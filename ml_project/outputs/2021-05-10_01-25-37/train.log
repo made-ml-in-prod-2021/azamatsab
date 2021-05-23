@@ -1,0 +1,3 @@
+[2021-05-10 01:25:37,946][classifier][INFO] - Start training sklearn.ensemble.RandomForestClassifier model
+[2021-05-10 01:25:38,069][classifier][INFO] - Accuracy score = 0.819672131147541
+[2021-05-10 01:25:38,070][classifier.utils][INFO] - Saving model to /home/azamat/Documents/MADE/ml_on_production/ml_project/models/RandomForestClassifier

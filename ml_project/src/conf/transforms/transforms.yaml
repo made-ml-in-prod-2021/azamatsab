@@ -1,0 +1,7 @@
+# @package _group_
+num_transforms:
+  - SimpleImputer
+  - StandardScaler
+cat_transforms:
+  - SimpleImputer
+  - OneHotEncoder

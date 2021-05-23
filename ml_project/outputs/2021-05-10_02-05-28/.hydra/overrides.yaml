@@ -1,0 +1,5 @@
+- model=rf
+- transforms=transforms
+- general=general
+- general.output_model_path=models
+- general.input_data_path=data/heart.csv

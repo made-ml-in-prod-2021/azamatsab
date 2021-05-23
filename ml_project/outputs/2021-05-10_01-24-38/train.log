@@ -1,0 +1,3 @@
+[2021-05-10 01:24:38,978][classifier][INFO] - Start training sklearn.linear_model.LogisticRegression model
+[2021-05-10 01:24:39,010][classifier][INFO] - Accuracy score = 0.8360655737704918
+[2021-05-10 01:24:39,011][classifier.utils][INFO] - Saving model to /home/azamat/Documents/MADE/ml_on_production/ml_project/models/LogisticRegression

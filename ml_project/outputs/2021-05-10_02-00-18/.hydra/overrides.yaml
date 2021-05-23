@@ -1,0 +1,2 @@
+- general.model_path=models/LogisticRegression
+- general.input_data_path=data/heart.csv
