@@ -3,4 +3,4 @@
 #### Run:
     docker-compose up --build
 
-#### See the results of a successful runs at screen folder
+#### See the results of successful runs at screen folder
