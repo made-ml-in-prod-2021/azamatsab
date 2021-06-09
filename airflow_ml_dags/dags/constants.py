@@ -1,4 +1,7 @@
 RAW_PATH = "/data/raw/{{ ds }}"
 PROCESSED_PATH = "/data/processed/{{ ds }}"
-MODELS_PATH = "/data/processed/{{ ds }}"
+MODELS_PATH = "/data/models/{{ ds }}"
 PRED_PATH = "/data/predictions/{{ ds }}"
+METRICS_PATH = "/data/metrics/{{ ds }}"
+VOLUME = "/home/azamat/Documents/MADE/ml_on_production/airflow_ml_dags/data:/data"
+PATH_FROM_VARIABLE = "{{var.value.model_name}}"

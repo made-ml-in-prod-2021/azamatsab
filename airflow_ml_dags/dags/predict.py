@@ -6,6 +6,7 @@ from airflow.providers.docker.operators.docker import DockerOperator
 from airflow.sensors.filesystem import FileSensor
 from airflow.utils.dates import days_ago
 from airflow.models import Variable
+from constants import PROCESSED_PATH, MODELS_PATH, PRED_PATH, VOLUME, PATH_FROM_VARIABLE
 
 
 default_args = {
@@ -23,7 +24,7 @@ with DAG(
 ) as dag:
     wait_for_data = FileSensor(
                  task_id="file_sensor_task2",
-                 filepath="/opt/airflow/data/processed/{{ ds }}/data.csv",
+                 filepath="/opt/airflow{}/data.csv".format(PROCESSED_PATH),
                  fs_conn_id="docker",
                  poke_interval=1,
                  mode="poke",
@@ -31,11 +32,11 @@ with DAG(
 
     predict = DockerOperator(
         image="airflow-predict",
-        command="--input-dir /data/processed/{{ ds }} --model-path /data/models/{{ ds }}/{{var.value.model_name}} --out /data/predictions/{{ ds }}/predictions.csv",
+        command="--input-dir {} --model-path {}/{} --out {}/predictions.csv".format(PROCESSED_PATH, MODELS_PATH, PATH_FROM_VARIABLE, PRED_PATH),
         task_id="docker-airflow-predict",
         do_xcom_push=False,
         network_mode="bridge",
-        volumes=["/home/azamat/Documents/MADE/ml_on_production/airflow_ml_dags/data:/data"]
+        volumes=[VOLUME]
     )
 
     wait_for_data >> predict

@@ -4,6 +4,7 @@ from datetime import timedelta
 from airflow import DAG
 from airflow.providers.docker.operators.docker import DockerOperator
 from airflow.utils.dates import days_ago
+from constants import RAW_PATH, VOLUME
 
 default_args = {
     "owner": "airflow",
@@ -20,11 +21,11 @@ with DAG(
 ) as dag:
     generate = DockerOperator(
         image="airflow-generate",
-        command="--output-dir /data/raw/{{ ds }}",
+        command="--output-dir {}".format(RAW_PATH),
         task_id="docker-airflow-generate",
         do_xcom_push=False,
         network_mode="bridge",
-        volumes=["/home/azamat/Documents/MADE/ml_on_production/airflow_ml_dags/data:/data"]
+        volumes=[VOLUME]
     )
 
     generate
